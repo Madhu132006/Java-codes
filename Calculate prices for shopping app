@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class ShoppingApp {
+    public static int calculateTotal(int price) {
+        return price;
+    }
+    public static int calculateTotal(int pricePerItem, int quantity) {
+        return pricePerItem * quantity;
+    }
+    public static int calculateTotal(int price1, int price2, int price3) {
+        return price1 + price2 + price3;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the price of a single item:");
+        int singleItemPrice = scanner.nextInt();
+        int singleItemTotal = calculateTotal(singleItemPrice);
+        System.out.println("Total price for a single item: " + singleItemTotal);
+        System.out.println("\nEnter the price of one item and the quantity:");
+        int pricePerItem = scanner.nextInt();
+        int quantity = scanner.nextInt();
+        int multipleItemsTotal = calculateTotal(pricePerItem, quantity);
+        System.out.println("Total price for " + quantity + " items: " + multipleItemsTotal);
+        System.out.println("\nEnter the prices of three different items:");
+        int price1 = scanner.nextInt();
+        int price2 = scanner.nextInt();
+        int price3 = scanner.nextInt();
+        int threeItemsTotal = calculateTotal(price1, price2, price3);
+        System.out.println("Total price for three items: " + threeItemsTotal);
+        scanner.close();
+    }
+}
+
+
