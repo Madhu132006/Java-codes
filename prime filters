@@ -1,0 +1,63 @@
+ import java.util.Scanner;
+public class PrimeFilter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        int[] numbers = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+        System.out.print("Original Array: ");
+        printArray(numbers);
+        int[] primes = getUniquePrimes(numbers);
+        System.out.print("Filtered Primes (Unique): ");
+        printArray(primes);
+        scanner.close();
+    }
+    public static int[] getUniquePrimes(int[] array) {
+        int[] temp = new int[array.length]; 
+        int count = 0; 
+        for (int i = 0; i < array.length; i++) {
+            if (isPrime(array[i]) && !existsInArray(temp, count, array[i])) {
+                temp[count] = array[i];
+                count++;
+            }        
+        }
+        int[] result = new int[count];
+        for (int i = 0; i < count; i++) {
+            result[i] = temp[i];
+        }
+        return result;
+    }
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean existsInArray(int[] array, int size, int value) {
+        for (int i = 0; i < size; i++) {            
+            if (array[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void printArray(int[] array) {
+        System.out.print("[");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+    }
+}
