@@ -1,0 +1,49 @@
+import java.util.Scanner;
+public class ComparisonUtility {
+    public static void compare(int score1, int score2) {
+        if (score1 > score2) {
+            System.out.println(score1 + " is greater.");
+        } else if (score1 < score2) {
+            System.out.println(score2 + " is greater.");
+        } else {
+            System.out.println("Both scores are equal.");
+        }
+    }
+    public static void compare(char letter1, char letter2) {
+        if (letter1 > letter2) {
+            System.out.println("'" + letter1 + "' is greater.");
+        } else if (letter1 < letter2) {
+            System.out.println("'" + letter2 + "' is greater.");
+        } else {
+            System.out.println("Both letters are equal.");
+        }
+    }
+    public static void compare(String motto1, String motto2) {
+        int length1 = motto1.length();
+        int length2 = motto2.length();
+        if (length1 > length2) {
+            System.out.println("\"" + motto1 + "\" is greater.");
+        } else if (length1 < length2) {
+            System.out.println("\"" + motto2 + "\" is greater.");
+        } else {
+            System.out.println("Both are equal.");
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the performance scores of two participants (integers):");
+        int score1 = scanner.nextInt();
+        int score2 = scanner.nextInt();
+        compare(score1, score2);
+        System.out.println("\nEnter the first letter of two teams (characters):");
+        char letter1 = scanner.next().charAt(0);
+        char letter2 = scanner.next().charAt(0);
+        compare(letter1, letter2);
+        scanner.nextLine(); 
+        System.out.println("\nEnter the mottos of two teams (strings):");
+        String motto1 = scanner.nextLine();
+        String motto2 = scanner.nextLine();
+        compare(motto1, motto2);
+        scanner.close();
+    }
+}
